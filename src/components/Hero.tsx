@@ -1,7 +1,10 @@
 import React from 'react';
 
+interface HeroProps {
+  onJoinClick: () => void;
+}
 
-export const Hero: React.FC = () => {
+export const Hero: React.FC<HeroProps> = ({ onJoinClick }) => {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center relative pt-24 pb-16 px-4">
       {/* Background gradient blobs */}
@@ -26,6 +29,7 @@ export const Hero: React.FC = () => {
 
         {/* CTA Button */}
         <button
+          onClick={onJoinClick}
           className="bg-white text-black border border-white py-3 px-8 rounded-full
           hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-300 text-lg font-semibold
           focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 shadow-md"
@@ -33,10 +37,6 @@ export const Hero: React.FC = () => {
           Join the waitlist
         </button>
       </div>
-
-      {/* Scroll cue */}
-      
-
     </section>
   );
 };
